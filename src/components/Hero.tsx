@@ -1,4 +1,3 @@
-import React from 'react';
 import { ArrowRight, ShoppingBag, Star, TrendingUp } from 'lucide-react';
 
 export default function Hero() {

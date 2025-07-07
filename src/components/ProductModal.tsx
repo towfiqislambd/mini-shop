@@ -60,8 +60,8 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4">
-      <div className="bg-white rounded-lg max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto">
+    <div onClick={onClose} className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4">
+      <div onClick={e => e.stopPropagation()} className="bg-white rounded-lg max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto">
         <div className="sticky top-0 bg-white p-3 sm:p-4 border-b flex justify-between items-center">
           <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Product Details</h2>
           <button
