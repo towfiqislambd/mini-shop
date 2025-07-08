@@ -94,6 +94,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
   return handler ? handler(state, (action as any).payload) : state;
 }
 
+
 export function CartProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
