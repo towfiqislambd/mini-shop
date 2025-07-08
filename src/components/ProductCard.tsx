@@ -1,7 +1,8 @@
 import React from "react";
-import { Star, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { Product } from "../context/CartContext";
 import { useCart } from "../context/CartContext";
+import { FaStar } from "react-icons/fa";
 
 interface ProductCardProps {
   product: Product;
@@ -17,42 +18,6 @@ export default function ProductCard({
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
     dispatch({ type: "ADD_TO_CART", payload: product });
-  };
-
-  const renderStars = (rating: number) => {
-    const stars = [];
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 !== 0;
-
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(
-        <Star
-          key={i}
-          className="h-3 sm:h-4 w-3 sm:w-4 text-yellow-400 fill-current"
-        />
-      );
-    }
-
-    if (hasHalfStar) {
-      stars.push(
-        <Star
-          key="half"
-          className="h-3 sm:h-4 w-3 sm:w-4 text-yellow-400 fill-current opacity-50"
-        />
-      );
-    }
-
-    const emptyStars = 5 - Math.ceil(rating);
-    for (let i = 0; i < emptyStars; i++) {
-      stars.push(
-        <Star
-          key={`empty-${i}`}
-          className="h-3 sm:h-4 w-3 sm:w-4 text-gray-300"
-        />
-      );
-    }
-
-    return stars;
   };
 
   return (
@@ -78,19 +43,21 @@ export default function ProductCard({
       </div>
 
       <div className="p-3 sm:p-4">
-        <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 line-clamp-2 min-h-[2.5rem] sm:min-h-[3rem]">
+        <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 min-h-[2rem] truncate">
           {product.name}
         </h3>
 
         <div className="flex items-center mb-2">
-          <div className="flex items-center">{renderStars(product.rating)}</div>
+          <div className="flex items-center">
+            <FaStar className="text-yellow-400" />
+          </div>
           <span className="ml-2 text-xs sm:text-sm text-gray-600">
             ({product.reviews})
           </span>
         </div>
 
-        <p className="text-gray-600 text-xs sm:text-sm mb-3 line-clamp-2 min-h-[2rem] sm:min-h-[2.5rem]">
-          {product.description}
+        <p className="text-gray-600 text-xs sm:text-sm mb-3 min-h-[2rem] sm:min-h-[2.5rem]">
+          {product.description.slice(0, 60)}....
         </p>
 
         <div className="flex items-center justify-between gap-2">

@@ -42,7 +42,7 @@ export const products: Product[] = [
     name: "Minimalist Leather Wallet",
     price: 45.99,
     image:
-      "https://images.pexels.com/photos/2905667/pexels-photo-2905667.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "https://images.pexels.com/photos/2115257/pexels-photo-2115257.jpeg?auto=compress&cs=tinysrgb&w=400",
     category: "Accessories",
     description:
       "Handcrafted genuine leather wallet with RFID protection and slim design.",

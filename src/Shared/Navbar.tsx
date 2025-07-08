@@ -48,17 +48,12 @@ export default function Navbar({ onCartClick }: NavbarProps) {
 
           {/* Right side icons */}
           <div className="flex items-center space-x-2 sm:space-x-4">
-            {/* Search - Hidden on mobile */}
-            <button className="hidden sm:block p-2 text-gray-700 hover:text-blue-600 transition-colors duration-200">
-              <Search className="h-5 w-5" />
-            </button>
-
-            {/* Wishlist - Hidden on mobile */}
+            {/* Wishlist */}
             <button className="hidden sm:block p-2 text-gray-700 hover:text-blue-600 transition-colors duration-200">
               <Heart className="h-5 w-5" />
             </button>
 
-            {/* User - Hidden on mobile */}
+            {/* User*/}
             <button className="hidden sm:block p-2 text-gray-700 hover:text-blue-600 transition-colors duration-200">
               <User className="h-5 w-5" />
             </button>
@@ -70,7 +65,7 @@ export default function Navbar({ onCartClick }: NavbarProps) {
             >
               <ShoppingCart className="h-5 w-5" />
               {state.itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center animate-pulse">
+                <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                   {state.itemCount}
                 </span>
               )}
