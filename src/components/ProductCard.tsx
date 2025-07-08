@@ -1,40 +1,23 @@
-import React from 'react';
-import { Star, ShoppingCart } from 'lucide-react';
-import { Product } from '../context/CartContext';
-import { useCart } from '../context/CartContext';
+import React from "react";
+import { ShoppingCart } from "lucide-react";
+import { Product } from "../context/CartContext";
+import { useCart } from "../context/CartContext";
+import { FaStar } from "react-icons/fa";
 
 interface ProductCardProps {
   product: Product;
   onProductClick: (product: Product) => void;
 }
 
-export default function ProductCard({ product, onProductClick }: ProductCardProps) {
+export default function ProductCard({
+  product,
+  onProductClick,
+}: ProductCardProps) {
   const { dispatch } = useCart();
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
-    dispatch({ type: 'ADD_TO_CART', payload: product });
-  };
-
-  const renderStars = (rating: number) => {
-    const stars = [];
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 !== 0;
-
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(<Star key={i} className="h-3 sm:h-4 w-3 sm:w-4 text-yellow-400 fill-current" />);
-    }
-
-    if (hasHalfStar) {
-      stars.push(<Star key="half" className="h-3 sm:h-4 w-3 sm:w-4 text-yellow-400 fill-current opacity-50" />);
-    }
-
-    const emptyStars = 5 - Math.ceil(rating);
-    for (let i = 0; i < emptyStars; i++) {
-      stars.push(<Star key={`empty-${i}`} className="h-3 sm:h-4 w-3 sm:w-4 text-gray-300" />);
-    }
-
-    return stars;
+    dispatch({ type: "ADD_TO_CART", payload: product });
   };
 
   return (
@@ -60,38 +43,42 @@ export default function ProductCard({ product, onProductClick }: ProductCardProp
       </div>
 
       <div className="p-3 sm:p-4">
-        <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 line-clamp-2 min-h-[2.5rem] sm:min-h-[3rem]">
+        <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 min-h-[2rem] truncate">
           {product.name}
         </h3>
-        
+
         <div className="flex items-center mb-2">
           <div className="flex items-center">
-            {renderStars(product.rating)}
+            <FaStar className="text-yellow-400" />
           </div>
-          <span className="ml-2 text-xs sm:text-sm text-gray-600">({product.reviews})</span>
+          <span className="ml-2 text-xs sm:text-sm text-gray-600">
+            ({product.reviews})
+          </span>
         </div>
 
-        <p className="text-gray-600 text-xs sm:text-sm mb-3 line-clamp-2 min-h-[2rem] sm:min-h-[2.5rem]">
-          {product.description}
+        <p className="text-gray-600 text-xs sm:text-sm mb-3 min-h-[2rem] sm:min-h-[2.5rem]">
+          {product.description.slice(0, 60)}....
         </p>
 
         <div className="flex items-center justify-between gap-2">
           <span className="text-lg sm:text-2xl font-bold text-gray-900">
             ${product.price}
           </span>
-          
+
           <button
             onClick={handleAddToCart}
             disabled={!product.inStock}
             className={`flex items-center space-x-1 sm:space-x-2 px-2 sm:px-4 py-2 rounded-md transition-colors duration-200 text-xs sm:text-sm ${
               product.inStock
-                ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                ? "bg-blue-600 hover:bg-blue-700 text-white"
+                : "bg-gray-300 text-gray-500 cursor-not-allowed"
             }`}
           >
             <ShoppingCart className="h-3 sm:h-4 w-3 sm:w-4" />
-            <span className="hidden sm:inline">{product.inStock ? 'Add to Cart' : 'Out of Stock'}</span>
-            <span className="sm:hidden">{product.inStock ? 'Add' : 'N/A'}</span>
+            <span className="hidden sm:inline">
+              {product.inStock ? "Add to Cart" : "Out of Stock"}
+            </span>
+            <span className="sm:hidden">{product.inStock ? "Add" : "N/A"}</span>
           </button>
         </div>
       </div>

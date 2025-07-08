@@ -12,57 +12,10 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-@layer utilities {
-  .line-clamp-1 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-  }
-
-  .line-clamp-2 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-  }
-
-  .line-clamp-3 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-  }
-}
-
-/* Focus styles for accessibility */
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid #3b82f6;
-  outline-offset: 2px;
-}
-
-/* Improved touch targets for mobile */
 @media (max-width: 768px) {
   button,
   a {
     min-height: 44px;
     min-width: 44px;
-  }
-}
-
-/* Loading animation for images */
-img {
-  transition: opacity 0.3s ease;
-}
-
-img[loading="lazy"] {
-  opacity: 0;
-  animation: fadeIn 0.3s ease forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
   }
 }

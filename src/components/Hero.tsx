@@ -1,5 +1,5 @@
-import React from 'react';
-import { ArrowRight, ShoppingBag, Star, TrendingUp } from 'lucide-react';
+import { ArrowRight, ShoppingBag, Star, TrendingUp } from "lucide-react";
+import heroImg from "../Assets/hero.jpeg";
 
 export default function Hero() {
   return (
@@ -13,7 +13,8 @@ export default function Hero() {
                 <span className="block text-yellow-400">Products</span>
               </h1>
               <p className="text-lg sm:text-xl text-blue-100 max-w-lg mx-auto lg:mx-0">
-                Experience the finest collection of carefully curated products designed for modern living.
+                Experience the finest collection of carefully curated products
+                designed for modern living.
               </p>
             </div>
 
@@ -34,14 +35,18 @@ export default function Hero() {
                   <Star className="h-4 sm:h-5 w-4 sm:w-5 text-yellow-400 fill-current" />
                   <span className="text-xl sm:text-2xl font-bold">4.9</span>
                 </div>
-                <p className="text-blue-100 text-sm sm:text-base">Customer Rating</p>
+                <p className="text-blue-100 text-sm sm:text-base">
+                  Customer Rating
+                </p>
               </div>
               <div className="text-center">
                 <div className="flex items-center justify-center space-x-1 mb-2">
                   <TrendingUp className="h-4 sm:h-5 w-4 sm:w-5 text-green-400" />
                   <span className="text-xl sm:text-2xl font-bold">10K+</span>
                 </div>
-                <p className="text-blue-100 text-sm sm:text-base">Happy Customers</p>
+                <p className="text-blue-100 text-sm sm:text-base">
+                  Happy Customers
+                </p>
               </div>
             </div>
           </div>
@@ -50,20 +55,24 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-pink-500 rounded-2xl sm:rounded-3xl transform rotate-3 sm:rotate-6"></div>
             <div className="relative bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl">
               <img
-                src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=600"
+                src={heroImg}
                 alt="Featured Products"
                 className="w-full h-48 sm:h-56 lg:h-64 object-cover rounded-xl sm:rounded-2xl"
                 loading="lazy"
               />
               <div className="mt-4 sm:mt-6 space-y-3 sm:space-y-4">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-gray-900 font-semibold text-sm sm:text-base">Premium Collection</h3>
+                  <h3 className="text-gray-900 font-semibold text-sm sm:text-base">
+                    Premium Collection
+                  </h3>
                   <div className="flex items-center space-x-1">
                     <Star className="h-3 sm:h-4 w-3 sm:w-4 text-yellow-400 fill-current" />
                     <span className="text-gray-600 text-sm">4.8</span>
                   </div>
                 </div>
-                <p className="text-gray-600 text-sm sm:text-base">Curated selection of top-rated products</p>
+                <p className="text-gray-600 text-sm sm:text-base">
+                  Curated selection of top-rated products
+                </p>
               </div>
             </div>
           </div>
